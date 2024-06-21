@@ -1,0 +1,26 @@
+.sidebar .ps-menu-label{
+    color: #FFF;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.sidebar .ps-menu-button:hover{
+ background-color: #7d838821 !important;
+ border-radius: 5rem;
+}
+
+.sidebar .menu-btn .ps-menu-button:hover{
+    background-color: transparent !important;
+}
+
+.sidebar .menu-btn .ps-menu-button:hover .ps-menu-icon:hover{
+    background-color: #7d838821;
+    border-radius: 5rem;
+    transition: 200ms ease-in-out;
+}
+
+.sidebar .active{
+    background-color: green;
+    border-radius: 5rem;
+}
