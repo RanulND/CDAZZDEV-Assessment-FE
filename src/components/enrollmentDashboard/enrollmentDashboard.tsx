@@ -5,6 +5,7 @@ import { Enrollment } from "../../types/enrollment";
 import { toast } from "react-toastify";
 import { updateEnrollment } from "../../services/enrollmentService";
 import { getStudent } from "../../services/userService";
+import { getCourse } from "../../services/courseServices";
 
 interface ExtendedEnrollment extends Enrollment {
     course: string
@@ -21,7 +22,7 @@ type Props = {
     enrollment: Enrollment
 }
 
-const StudentViewModal = (props: ModalProps) => {
+const EnrollmentViewModal = (props: ModalProps) => {
     const [editMode, setEditMode] = useState(false)
     const [completed, setCompleted] = useState(props.enrollment.completed)
     const dispatch = useAppDispatch()
@@ -85,11 +86,10 @@ const StudentViewModal = (props: ModalProps) => {
                                                     </div>
                                                     <div className="col-sm">
                                                         {
-                                                            editMode ?
-                                                                <button type="button" className="inline-flex w-full justify-center rounded-md bg-indigo-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-600 sm:ml-3 sm:w-auto" onClick={_ => { onUpdate() }}>Update</button>
+                                                            completed ?
+                                                                <button type="button" className="inline-flex w-full justify-center rounded-md bg-yellow-400 px-3 py-2 text-sm font-semibold shadow-sm hover:bg-yellow-500 sm:ml-3 sm:w-auto" onClick={_ => { setCompleted(!completed) }}>Set as Incomplete</button>
                                                                 :
-                                                                <button type="button" className="inline-flex w-full justify-center rounded-md bg-indigo-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-600 sm:ml-3 sm:w-auto" onClick={_ => { onUpdate() }}>Update</button>
-
+                                                                <button type="button" className="inline-flex w-full justify-center rounded-md bg-green-400 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 sm:ml-3 sm:w-auto" onClick={_ => { setCompleted(!completed) }}>Mark as Completed</button>
                                                         }
                                                     </div>
                                                 </div>
@@ -137,7 +137,7 @@ const EnrollmentDetails = (props: Props) => {
     }, [props.enrollment.userId])
 
     useEffect(() => {
-        getStudent(props.enrollment.courseId).then((res) => {
+        getCourse(props.enrollment.courseId).then((res) => {
             setCourse(`${res.data.data.name}`)
         })
     }, [props.enrollment.courseId])
@@ -158,7 +158,7 @@ const EnrollmentDetails = (props: Props) => {
             <div className="col-sm md:w-fit lg:w-1/12 px-1">
                 <button className="bg-red-500 hover:bg-red-600 rounded w-full py-2 text-white md:px-2 lg:px-0" onClick={_ => { onDelete(props.enrollment.enrollmentId ? props.enrollment.enrollmentId : "") }}>Delete</button>
             </div>
-            {showModal && <StudentViewModal enrollment={extendedEnrollment} setShowModal={setShowModal} showModal={showModal} />}
+            {showModal && <EnrollmentViewModal enrollment={extendedEnrollment} setShowModal={setShowModal} showModal={showModal} />}
         </div>
     )
 }

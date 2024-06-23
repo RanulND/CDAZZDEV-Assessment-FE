@@ -59,7 +59,7 @@ const CourseViewModal = (props: ModalProps) => {
                                                 </svg>
                                             </div>
                                             <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
-                                                <h3 className="text-base font-semibold leading-6 text-gray-900" id="modal-title">User Details</h3>
+                                                <h3 className="text-base font-semibold leading-6 text-gray-900" id="modal-title">Course Details</h3>
                                                 <div className="mt-6 items-center">
                                                     <div className="col-sm font-semibold text-sm">
                                                         Course Name
@@ -86,12 +86,12 @@ const CourseViewModal = (props: ModalProps) => {
                                                 </div>
                                                 <div className="mt-2 items-center">
                                                     <div className="col-sm font-semibold text-sm">
-                                                        Email :
+                                                        Mode
                                                     </div>
                                                     <div className="col-sm">
                                                         {
                                                             editMode ?
-                                                                <select className="rounded p-2 border mt-2" value={mode} onSelect={e => setMode(parseInt(e.currentTarget.value) === 0? courseModes.ONLINE:courseModes.PHYSICAL)}>
+                                                                <select className="rounded w-full bg-white p-2 border mt-2" onChange={e => setMode(parseInt(e.target.value) === 0? courseModes.ONLINE:courseModes.PHYSICAL)}>
                                                                     <option value={0}>{courseModes.ONLINE}</option>
                                                                     <option value={1}>{courseModes.PHYSICAL}</option>
                                                                 </select> :
@@ -136,9 +136,9 @@ const CourseDetails = (props: Props) => {
 
     return (
         <div className="flex items-center justify-between w-full py-2 border-t-2 px-6" key={props.course.courseId}>
-            <div className="col-sm text-slate-600 md:w-2/12 lg:w-3/12">{props.course.name}</div>
-            <div className="col-sm text-slate-600 md:w-2/12 lg:w-3/12">{props.course.tutor}</div>
-            <div className="col-sm text-slate-600 md:w-5/12 lg:w-4/12">{props.course.mode}</div>
+            <div className="col-sm text-slate-600 md:w-3/12 lg:w-3/12">{props.course.name}</div>
+            <div className="col-sm text-slate-600 md:w-3/12 lg:w-3/12">{props.course.tutor}</div>
+            <div className="col-sm text-slate-600 md:w-3/12 lg:w-4/12">{props.course.mode}</div>
             <div className="col-sm md:w-fit lg:w-1/12 px-1">
                 <button className="bg-yellow-300 hover:bg-yellow-400 w-full rounded py-2 md:px-2 lg:px-0" onClick={_ => { setShowModal(true) }}>View</button>
             </div>

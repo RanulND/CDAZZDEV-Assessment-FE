@@ -10,10 +10,10 @@ type Props = {
     setActive: React.Dispatch<React.SetStateAction<ActivePage>>
 }
 const AdminSidebar = (props: Props) => {
-    const [collapsed, setCollapsed] = useState(false)
+    const [collapsed, setCollapsed] = useState(true)
 
     return (
-        <Sidebar collapsed={collapsed} className="h-screen sidebar bg-slate-300 text-dark" onBackdropClick={() => setCollapsed(true)} width="280px">
+        <Sidebar breakPoint="md" collapsed={collapsed} toggled={true} className="h-screen sidebar bg-slate-300 text-dark" onBackdropClick={() => setCollapsed(true)} width="280px">
             <Menu className="pt-4">
                 <MenuItem className="pb-6 text-start" icon={<TiThMenuOutline color="#000" size={20} className="" />} onClick={_ => setCollapsed(!collapsed)}>
                     <span className="menu-item uppercase font-bold">cdazzdev</span>
