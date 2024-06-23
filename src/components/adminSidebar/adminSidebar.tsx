@@ -13,21 +13,21 @@ const AdminSidebar = (props: Props) => {
     const [collapsed, setCollapsed] = useState(false)
 
     return (
-        <Sidebar collapsed={collapsed} className="h-screen sidebar" backgroundColor="#1e1f20" onBackdropClick={() => setCollapsed(true)} width="280px">
+        <Sidebar collapsed={collapsed} className="h-screen sidebar bg-slate-300 text-dark" onBackdropClick={() => setCollapsed(true)} width="280px">
             <Menu className="pt-4">
-                <MenuItem className="pb-6 text-start" icon={<TiThMenuOutline color="#FFF" size={20} className="" />} onClick={_ => setCollapsed(!collapsed)}>
+                <MenuItem className="pb-6 text-start" icon={<TiThMenuOutline color="#000" size={20} className="" />} onClick={_ => setCollapsed(!collapsed)}>
                     <span className="menu-item uppercase font-bold">cdazzdev</span>
                 </MenuItem>
-                <MenuItem icon={<LuMessageSquarePlus color="#FFF" size={20} />} className={`text-start my-4 ${props.active === 0 ? "active" : ""}`} onClick={_ => props.setActive(ActivePage.LANDING)}>
+                <MenuItem icon={<LuMessageSquarePlus color="#000" size={20} />} className={`text-start my-4 ${props.active === 0 ? "active" : ""}`} onClick={_ => props.setActive(ActivePage.LANDING)}>
                     <span className="menu-item">Admin Panel</span>
                 </MenuItem>
-                <MenuItem icon={<LuMessageSquarePlus color="#FFF" size={20} />} className={`text-start my-4 ${props.active === 1 ? "active" : ""}`} onClick={_ => props.setActive(ActivePage.STUDENT_DB)}>
+                <MenuItem icon={<LuMessageSquarePlus color="#000" size={20} />} className={`text-start my-4 ${props.active === 1 ? "active" : ""}`} onClick={_ => props.setActive(ActivePage.STUDENT_DB)}>
                     <span className="menu-item">Student Dashboard</span>
                 </MenuItem>
-                <MenuItem icon={<LuMessageSquarePlus color="#FFF" size={20} />} className={`text-start my-4 ${props.active === 2 ? "active" : ""}`} onClick={_ => props.setActive(ActivePage.COURSE_DB)}>
+                <MenuItem icon={<LuMessageSquarePlus color="#000" size={20} />} className={`text-start my-4 ${props.active === 2 ? "active" : ""}`} onClick={_ => props.setActive(ActivePage.COURSE_DB)}>
                     <span className="menu-item">Course Dashboard</span>
                 </MenuItem>
-                <MenuItem icon={<LuMessageSquarePlus color="#FFF" size={20} />} className={`text-start my-4 ${props.active === 3 ? "active" : ""}`} onClick={_ => props.setActive(ActivePage.ENROLLMENT_DB)}>
+                <MenuItem icon={<LuMessageSquarePlus color="#000" size={20} />} className={`text-start my-4 ${props.active === 3 ? "active" : ""}`} onClick={_ => props.setActive(ActivePage.ENROLLMENT_DB)}>
                     <span className="menu-item">Enrollment Dashboard</span>
                 </MenuItem>
             </Menu>

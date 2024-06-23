@@ -1,13 +1,13 @@
 .sidebar .ps-menu-label{
-    color: #FFF;
+    color: #000;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
 }
 
 .sidebar .ps-menu-button:hover{
- background-color: #7d838821 !important;
- border-radius: 5rem;
+ background-color: rgb(226 232 240) !important;
+ border-radius: 1rem;
 }
 
 .sidebar .menu-btn .ps-menu-button:hover{
@@ -15,12 +15,12 @@
 }
 
 .sidebar .menu-btn .ps-menu-button:hover .ps-menu-icon:hover{
-    background-color: #7d838821;
-    border-radius: 5rem;
+    background-color: rgb(226 232 240);
+    border-radius: 1rem;
     transition: 200ms ease-in-out;
 }
 
 .sidebar .active{
-    background-color: green;
-    border-radius: 5rem;
+    background-color: rgb(203 213 225);
+    border-radius: 1rem;
 }

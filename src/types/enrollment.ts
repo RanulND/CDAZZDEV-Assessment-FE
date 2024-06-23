@@ -1,5 +1,5 @@
 export interface Enrollment{
-    enrollmentId: string
+    enrollmentId?: string
     userId: string
     courseId: string
     timestamp: number
