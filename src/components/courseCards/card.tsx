@@ -44,7 +44,7 @@ const CourseViewModal = (props: ModalProps) => {
                     completed: false
                 }
                 createEnrollment(newEnrollment).then(res => {
-                    newEnrollment = { ...newEnrollment, enrollmentId: props.course.courseId }
+                    newEnrollment = { ...newEnrollment, enrollmentId: res.data.data.enrollmentId }
                     dispatch(addEnrollmentToStore(newEnrollment))
                     toast.success("Enrolled Successful")
                     props.setShowModal(false)

@@ -86,11 +86,13 @@ const EnrollmentViewModal = (props: ModalProps) => {
                                                     </div>
                                                     <div className="col-sm">
                                                         {
-                                                            completed ?
+                                                            editMode? (completed ?
                                                                 <button type="button" className="inline-flex w-full justify-center rounded-md bg-yellow-400 px-3 py-2 text-sm font-semibold shadow-sm hover:bg-yellow-500 sm:ml-3 sm:w-auto" onClick={_ => { setCompleted(!completed) }}>Set as Incomplete</button>
                                                                 :
-                                                                <button type="button" className="inline-flex w-full justify-center rounded-md bg-green-400 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 sm:ml-3 sm:w-auto" onClick={_ => { setCompleted(!completed) }}>Mark as Completed</button>
+                                                                <button type="button" className="inline-flex w-full justify-center rounded-md bg-green-400 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 sm:ml-3 sm:w-auto" onClick={_ => { setCompleted(!completed) }}>Mark as Completed</button>):
+                                                                <button type="button" className="inline-flex w-full justify-center rounded-md bg-yellow-400 px-3 py-2 text-sm font-semibold shadow-sm hover:bg-yellow-500 sm:ml-3 sm:w-auto" disabled={true} onClick={_ => { setCompleted(!completed) }}>{props.enrollment.completed? "Completed":"Not Completed"}</button>
                                                         }
+                                                       
                                                     </div>
                                                 </div>
                                             </div>
